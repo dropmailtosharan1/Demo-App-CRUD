@@ -1,0 +1,248 @@
+:host {
+  display: block;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* top */
+}
+
+.hero-inner {
+  max-width: 1440px; /* layout width */
+  height: 136px; /* layout height */
+  padding: 8px 224px 48px 224px; /* top/right/bottom/left */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #0b2e6b; /* deep blue to match image */
+  text-align: center;
+}
+
+.subtitle {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #6b7280; /* muted gray */
+  text-align: center;
+}
+
+/* Center content horizontally */
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-inner {
+    padding: 8px 24px 24px 24px;
+    height: auto;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+}
+
+/* Feature cards */
+.features {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px; /* top */
+  padding-left: 120px; /* left */
+  width: 80%;
+}
+
+.features-inner {
+  max-width: 1100px; /* layout width */
+  height: 444px; /* layout height */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.feature-card {
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(0.9);
+}
+
+.step-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #0b61e6;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(11, 97, 230, 0.15);
+}
+
+.card-title {
+  margin: 16px 0 8px 0;
+  font-size: 18px;
+  color: #0b2e6b;
+}
+
+.card-list {
+  margin: 0 0 16px 0;
+  padding-left: 18px;
+  color: #374151;
+}
+
+.card-list li {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.cta {
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(180deg, #1390ff 0%, #0b61e6 100%);
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .features-inner {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .features {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .features-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    height: auto;
+  }
+  .card-media {
+    height: 160px;
+  }
+  .feature-card {
+    border-radius: 10px;
+  }
+}
+
+/* Disclaimer card */
+.disclaimer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px; /* top */
+  padding-left: 120px; /* left */
+  width: 80%;
+}
+
+.disclaimer-inner {
+  max-width: 1200px; /* layout width */
+  height: 359px; /* layout height */
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  gap: 16px;
+  box-sizing: border-box;
+  background: var(
+    --utility-grey-white-error-utility-dark-grey-white-500-core,
+    #ffffff
+  );
+  border: 1px solid
+    var(
+      --utility-grey-white-error-utility-light-grey-shade-utility-light-grey-300,
+      #dddddd
+    );
+  border-radius: 20px;
+  align-items: flex-start;
+}
+
+.disclaimer-accent {
+  width: 6px;
+  height: 40px;
+  background: #e11d48;
+  border-radius: 4px;
+  margin-left: 12px;
+  margin-top: 12px;
+  flex: 0 0 auto;
+}
+
+.disclaimer-body {
+  flex: 1;
+  padding-right: 24px;
+}
+
+.disclaimer-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b2e6b;
+}
+
+.disclaimer-text p {
+  color: #374151;
+}
+
+.disclaimer-list {
+  padding-left: 0;
+  color: #374151;
+}
+
+.disclaimer-list li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .disclaimer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .disclaimer-inner {
+    max-width: 100%;
+    height: auto;
+  }
+  .disclaimer-accent {
+    height: 32px;
+    margin-top: 8px;
+  }
+}

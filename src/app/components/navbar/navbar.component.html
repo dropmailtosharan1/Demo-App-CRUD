@@ -1,0 +1,50 @@
+<mat-toolbar class="navbar">
+  <div class="toolbar-content">
+    <div class="left">
+      <div class="logo" aria-label="Tasheeh logo">
+        <div class="logo-mark">تاشر</div>
+        <div class="logo-text">Tasheeh</div>
+      </div>
+    </div>
+
+    <nav class="center nav-links" role="navigation">
+      <a mat-button routerLink="/">Visa Guide</a>
+      <a mat-button routerLink="/book">Book Appointment</a>  
+      <a mat-button routerLink="/track">Track Status</a>
+      <a mat-button routerLink="/help">Get Help</a>
+    </nav>
+
+    <div class="right">
+      <button mat-button class="lang-btn" [matMenuTriggerFor]="langMenu" aria-label="Select language">
+        <span class="flag">{{selectedLang.flag}}</span>
+        <span class="lang-label">{{selectedLang.label}}</span>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+
+    <button mat-icon-button class="mobile-menu" [matMenuTriggerFor]="mobileMenu" aria-label="Open menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #langMenu="matMenu">
+  <button mat-menu-item *ngFor="let l of languages" (click)="selectedLang = l">
+    <span class="flag">{{l.flag}}</span>
+    <span class="lang-label">{{l.label}}</span>
+  </button>
+</mat-menu>
+
+<mat-menu #mobileMenu="matMenu">
+  <button mat-menu-item routerLink="/">Visa Guide</button>
+  <button mat-menu-item routerLink="/book">Book Appointment</button>
+  <button mat-menu-item routerLink="/track">Track Status</button>
+  <button mat-menu-item routerLink="/help">Get Help</button>
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let l of languages">
+    <button mat-menu-item (click)="selectedLang = l">
+      <span class="flag">{{l.flag}}</span>
+      <span class="lang-label">{{l.label}}</span>
+    </button>
+  </ng-container>
+</mat-menu> 

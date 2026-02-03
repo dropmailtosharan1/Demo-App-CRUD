@@ -1,0 +1,81 @@
+:host {
+  display: block;
+}
+
+.navbar {
+  background: #0769E0;
+  border-bottom: 1px solid #1D4ED8;
+  height: 83px;
+  min-height: 83px;
+  padding-left: 120px;
+  padding-right: 120px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+}
+
+.toolbar-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.logo-mark {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.logo-text {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.nav-links a {
+  color: #fff;
+  margin: 0 12px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+}
+
+.lang-btn {
+  border-radius: 20px;
+  background: rgba(0,0,0,0.08);
+  color: #fff;
+  padding: 6px 12px;
+  min-width: auto;
+}
+
+.lang-btn .flag {
+  margin-right: 8px;
+}
+
+.lang-btn mat-icon {
+  margin-left: 6px;
+}
+
+.mobile-menu {
+  display: none;
+  color: #fff;
+}
+
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .lang-btn { display: none; }
+  .mobile-menu { display: inline-flex; }
+  .navbar { padding-left: 20px; padding-right: 20px; }
+}

@@ -1,0 +1,58 @@
+<section class="hero" role="region" aria-label="Homepage hero">
+  <div class="hero-inner">
+    <div class="content">
+      <h1 class="title">Know Your Family Visit Visa</h1>
+      <p class="subtitle">Understand the process, Contact us for any question.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Feature cards section -->
+<section class="features" role="region" aria-label="How it works">
+  <div class="features-inner">
+    <mat-card class="feature-card" *ngFor="let f of features">
+      <div class="card-media">
+        <img class="media-img" [src]="f.image" [alt]="f.title + ' image'" />
+      </div>
+
+      <mat-card-content>
+        <div class="step-badge" aria-hidden="true">{{ f.step }}</div>
+        <h3 class="card-title">{{ f.title }}</h3>
+        <ul class="card-list">
+          <li *ngFor="let it of f.items">{{ it }}</li>
+        </ul>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" class="cta">{{ f.cta }}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>  
+  
+<!-- Important Disclaimer -->
+<section class="disclaimer" role="region" aria-label="Important Disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-accent" aria-hidden="true"></div>
+
+    <div class="disclaimer-body">
+      <h4 class="disclaimer-title">Important Disclaimer</h4>
+      <div class="disclaimer-text">
+        <p><strong>Read Carefully:</strong></p>
+        <ol class="disclaimer-list">
+          <li>
+            Tasheer is a visa facilitation and consulting service provider. We do not assess, approve, or reject visa applications. All visa decisions are solely made by the respective Embassy / Consulate / Government Authorities in accordance with their rules and regulations.
+          </li>
+          <li>
+            Visa fees, service fees, and government charges are non-refundable in case of rejection, delay, or withdrawal, unless explicitly stated otherwise.
+          </li>
+          <li>
+            Tasheer is not responsible for any financial or non-financial loss arising from visa refusal.
+          </li>
+          <li>
+            Visa rules, documentation requirements, and fees are subject to change without prior notice by the respective authorities. Applicants are advised to stay informed and comply with the latest guidelines.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
