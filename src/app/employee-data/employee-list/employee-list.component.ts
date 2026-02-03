@@ -59,14 +59,14 @@ export class EmployeeListComponent implements OnInit {
   ) {
     this.empForm = this._fb.group({
       firstName: ['', Validators.required],
-      lastName: [''],
-      email: [''],
-      dob: [''],
-      gender: [''],
-      education: [''],
-      company: [''],
-      experience: [''],
-      package: [''],
+      lastName: ['',Validators.required],
+      email: ['', Validators.email],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required],
+      education: ['', Validators.required],
+      company: ['', Validators.required],
+      experience: ['', Validators.required],
+      package: ['', Validators.required],
     });
   }
 
