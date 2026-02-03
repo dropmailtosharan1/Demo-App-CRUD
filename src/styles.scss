@@ -1,3 +1,23 @@
+// @use '@angular/material' as mat;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@use '@angular/material' as mat;
+
+// Required core styles
+@include mat.core();
+
+// Create theme using Material 3 tokens
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$green-palette,
+  ),
+));
+
+// Apply theme to all components
+:root {
+  @include mat.all-component-themes($theme);
+}
