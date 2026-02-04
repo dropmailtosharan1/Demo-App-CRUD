@@ -11,7 +11,6 @@ export class EmployeeService {
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
 
   addEmployee(data: any): Observable<any> {
-    // Ensure a sequential numeric id is assigned so json-server stores numeric ids (not random strings)
     return this._http.get<any[]>('http://localhost:3000/employees').pipe(
       take(1),
       map((employees) => {
@@ -43,5 +42,14 @@ export class EmployeeService {
       duration: 1000,
       verticalPosition: 'top',
     });
+  }
+
+  // Login method
+  login(username: string, password: string): Observable<boolean> {
+    return this._http.get<any[]>('http://localhost:3000/employees').pipe(
+      map(employees => employees.some(emp => 
+        emp.username === username && emp.password === password
+      ))
+    );
   }
 }
