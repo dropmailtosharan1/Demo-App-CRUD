@@ -20,3 +20,16 @@ $theme: mat.define-theme((
 :root {
   @include mat.all-component-themes($theme);
 }
+
+/* Add application styles & imports to this file! */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}

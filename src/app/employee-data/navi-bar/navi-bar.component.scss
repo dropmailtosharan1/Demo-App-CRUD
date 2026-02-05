@@ -1,0 +1,23 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.app-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

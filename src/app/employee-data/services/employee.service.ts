@@ -8,7 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root',
 })
 export class EmployeeService {
-  constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
+  constructor(
+    private _http: HttpClient,
+    private _snackBar: MatSnackBar,
+  ) {}
 
   addEmployee(data: any): Observable<any> {
     return this._http.get<any[]>('http://localhost:3000/employees').pipe(
@@ -21,7 +24,9 @@ export class EmployeeService {
         const newEmployee = { ...data, id: maxId + 1 };
         return newEmployee;
       }),
-      switchMap((newEmployee) => this._http.post('http://localhost:3000/employees', newEmployee))
+      switchMap((newEmployee) =>
+        this._http.post('http://localhost:3000/employees', newEmployee),
+      ),
     );
   }
 
@@ -37,7 +42,7 @@ export class EmployeeService {
     return this._http.delete(`http://localhost:3000/employees/${id}`);
   }
 
-   openSnackBar(message: string, action: string = 'ok') {
+  openSnackBar(message: string, action: string = 'ok') {
     this._snackBar.open(message, action, {
       duration: 1000,
       verticalPosition: 'top',
@@ -45,11 +50,15 @@ export class EmployeeService {
   }
 
   // Login method
+
   login(username: string, password: string): Observable<boolean> {
     return this._http.get<any[]>('http://localhost:3000/employees').pipe(
-      map(employees => employees.some(emp => 
-        emp.username === username && emp.password === password
-      ))
+      map((users) => {
+        const user = users.find(
+          (emp) => emp.username === username && emp.password === password,
+        );
+        return !!users;
+      }),
     );
   }
 }

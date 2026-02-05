@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin12345"
+    }
+  ],
   "employees": [
     {
       "firstName": "Kennetha",
@@ -73,8 +80,7 @@
       "package": 32
     },
     {
-      "id": "9",
-      "firstName": "Ganny",
+      "firstName": "Ganny yh",
       "lastName": "Cammacke",
       "email": "gcammacke8@pbs.org",
       "dob": "1997-01-01T21:36:29Z",
@@ -82,7 +88,8 @@
       "education": "Diploma",
       "company": "Demizz",
       "experience": 30,
-      "package": 28
+      "package": 28,
+      "id": "9"
     },
     {
       "firstName": "Williams",
@@ -2389,18 +2396,6 @@
       "id": "201"
     },
     {
-      "firstName": "hari",
-      "lastName": "nath",
-      "email": "hari@gmail.com",
-      "dob": "2026-02-01T18:30:00.000Z",
-      "gender": "male",
-      "education": "Post Graduate",
-      "company": "MEIL",
-      "experience": 4,
-      "package": 12,
-      "id": "202"
-    },
-    {
       "firstName": "veera ",
       "lastName": "ram",
       "email": "veeraram@gmail.com",
@@ -2423,6 +2418,18 @@
       "experience": 3,
       "package": 10,
       "id": 204
+    },
+    {
+      "firstName": "kiran",
+      "lastName": "kumar",
+      "email": "kiran@gmail.com",
+      "dob": "2026-02-17T18:30:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "mahindra",
+      "experience": 3,
+      "package": 8,
+      "id": 205
     }
   ]
 }
