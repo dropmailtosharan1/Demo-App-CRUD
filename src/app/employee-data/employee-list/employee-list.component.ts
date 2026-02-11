@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -41,7 +41,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   styleUrl: './employee-list.component.scss'
 })
 export class EmployeeListComponent implements OnInit {
-  empForm: FormGroup;
+  empForm!: FormGroup;
+  
+  // ✅ FIXED: Make both injections OPTIONAL for standalone usage
+  private _fb = inject(FormBuilder);
+  private _empService = inject(EmployeeService);
+  private _dialogRef = inject(MatDialogRef<EmployeeListComponent>, { optional: true });
+  public data = inject(MAT_DIALOG_DATA, { optional: true });
 
   education: string[] = [
     'Matric',
@@ -50,16 +56,10 @@ export class EmployeeListComponent implements OnInit {
     'Graduate',
     'Post Graduate',
   ];
-
-  constructor(
-    private _fb: FormBuilder,
-    private _empService: EmployeeService,
-    private _dialogRef: MatDialogRef<EmployeeListComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {
+  constructor() {
     this.empForm = this._fb.group({
       firstName: ['', Validators.required],
-      lastName: ['',Validators.required],
+      lastName: ['', Validators.required],
       email: ['', Validators.email],
       dob: ['', Validators.required],
       gender: ['', Validators.required],
@@ -71,28 +71,33 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.empForm.patchValue(this.data);
+    // ✅ Safe data patching (data might be undefined outside dialog)
+    if (this.data) {
+      this.empForm.patchValue(this.data);
+    }
   }
 
   onFormSubmit() {
     if (this.empForm.valid) {
-      if (this.data) {
+      if (this.data?.id) {
+        // Update existing employee
         this._empService
           .updateEmployee(this.data.id, this.empForm.value)
           .subscribe({
             next: (val: any) => {
               this._empService.openSnackBar('Employee detail updated!');
-              this._dialogRef.close(true);
+              this._dialogRef?.close(true); // Safe: only closes if dialog exists
             },
             error: (err: any) => {
               console.error(err);
             },
           });
       } else {
+        // Add new employee
         this._empService.addEmployee(this.empForm.value).subscribe({
           next: (val: any) => {
             this._empService.openSnackBar('Employee added successfully');
-            this._dialogRef.close(true);
+            this._dialogRef?.close(true); // Safe: only closes if dialog exists
           },
           error: (err: any) => {
             console.error(err);

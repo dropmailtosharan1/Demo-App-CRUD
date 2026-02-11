@@ -1,18 +1,29 @@
-
-    <div class="center">
-       <mat-card class="auth-card">
-        <h2>Login</h2>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <mat-form-field appearance="outline" class="full">
-            <input matInput placeholder="Email" formControlName="username" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="full">
-            <input matInput placeholder="Password" type="password" formControlName="password" required>
-          </mat-form-field>
-          <button mat-raised-button color="primary" class="full">Login</button>
-          <div *ngIf="error" class="alert alert-danger mt-3">
-                  {{ error }}
-                </div>
-        </form>
-      </mat-card>
-    </div>
+<div class="center">
+  <mat-card class="auth-card">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Email"
+          formControlName="username"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+          required
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="full">Login</button>
+      <div *ngIf="error" class="alert alert-danger mt-3">
+        {{ error }}
+      </div>
+      <p>Register for new user?<a routerLink="/signup">Signup</a></p>
+    </form>
+  </mat-card>
+</div>

@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
-  <div class="container d-flex align-items-center justify-content-between w-100">
+  <div
+    class="container d-flex align-items-center justify-content-between w-100"
+  >
     <!-- App Name / Logo -->
-    <a mat-button routerLink="/" class="app-title text-white">
+    <a mat-button routerLink="/" class="app-title text-black">
       <mat-icon class="me-2">home</mat-icon>
       Crud Application
     </a>
@@ -10,16 +12,22 @@
     <span class="spacer"></span>
     <nav class="d-none d-lg-flex">
       <a mat-button routerLink="/" routerLinkActive="active-link">Home</a>
-      <a mat-button routerLink="/employee-form" routerLinkActive="active-link">Employee Form</a>
+      <a mat-button routerLink="/employee-form" routerLinkActive="active-link"
+        >Logout</a
+      >
     </nav>
 
     <!-- Mobile Menu (Optional) -->
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="d-lg-none text-white">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      class="d-lg-none text-white"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/">Home</button>
-      <button mat-menu-item routerLink="/employee-form">Employee Form</button>
+      <button mat-menu-item routerLink="/employee-form">Logout</button>
     </mat-menu>
   </div>
 </mat-toolbar>

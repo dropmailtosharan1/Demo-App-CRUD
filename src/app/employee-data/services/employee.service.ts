@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { take, map, switchMap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -61,4 +61,23 @@ export class EmployeeService {
       }),
     );
   }
+
+  // Signup method
+  register(userData: any): Observable<any> {
+    return this._http.get<any[]>('http://localhost:3000/employees').pipe(
+      switchMap(users => {
+        const user = users.find(
+          u => u.username === userData.username
+        );
+
+        if (user) {
+          return throwError(() => new Error('User exists'));
+        }
+
+        return this._http.post('http://localhost:3000/employees', userData);
+      })
+    );
+  }
+
 }
+

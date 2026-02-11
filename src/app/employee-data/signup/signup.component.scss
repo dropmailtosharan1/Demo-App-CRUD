@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.auth-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+mat-card-footer {
+  text-align: center;
+  padding: 20px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+.full {
+  width: 100%;
+}

@@ -1,0 +1,30 @@
+<div class="center">
+  <mat-card class="auth-card">
+    <h2>Signup</h2>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline" class="full">
+        <input matInput placeholder="Email" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <input matInput type="password" placeholder="Password" formControlName="password">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full">
+        Register
+      </button>
+
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+
+      <p>
+        Already registered?
+        <a routerLink="/login">Login</a>
+      </p>
+
+    </form>
+  </mat-card>
+</div>
